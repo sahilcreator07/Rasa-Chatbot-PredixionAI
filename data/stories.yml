@@ -1,0 +1,75 @@
+version: "3.0"
+
+stories:
+  - story: User wants to pay loan
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - action: utter_ask_payment
+      - intent: inform_payment_ready
+      - action: utter_payment_steps
+      - action: utter_no_need_more_help_exit
+      - intent: end
+      - action: utter_end_conversation
+
+  - story: User requests extension
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - action: utter_ask_payment
+      - intent: request_extension
+      - action: utter_user_reason_for_extension
+      - intent: provide_excuse
+      - action: action_handle_extension_and_excuse
+      - action: utter_deny_payment
+      - intent: affirm_for_no_payment
+      - action: utter_encourage_payment
+      - action: utter_extension_granted
+      - action: utter_no_need_more_help_exit
+      - intent: end
+      - action: utter_end_conversation
+
+
+  # - story: User gives excuse
+  #   steps:
+  #     - intent: greet
+  #     - action: utter_greet
+  #     - action: utter_ask_payment
+  #     - intent: provide_excuse
+  #     - action: action_handle_excuse
+  #     - action: utter_encourage_payment
+
+  - story: interactive_story_extension
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_payment
+    - intent: request_extension
+    - action: utter_user_reason_for_extension
+    - intent: provide_excuse
+      entities:
+      - reason: job
+    - slot_was_set:
+      - reason: job
+    - action: action_handle_extension_and_excuse
+    - action: utter_deny_payment
+    - intent: affirm_for_no_payment
+    - action: utter_encourage_payment
+    - action: utter_extension_granted
+    - action: utter_no_need_more_help_exit
+    - intent: end
+    - action: utter_end_conversation
+
+
+  - story: interactive_story_payment_done
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: utter_ask_payment
+    - intent: inform_payment_ready
+    - slot_was_set:
+      - payment_ready: true
+    - action: utter_payment_steps
+    - action: utter_no_need_more_help_exit
+    - intent: end
+    - action: utter_end_conversation

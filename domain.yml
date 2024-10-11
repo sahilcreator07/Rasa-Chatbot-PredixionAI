@@ -1,0 +1,67 @@
+version: '3.0'
+intents:
+- affirm
+- affirm_for_no_payment
+- deny
+- end
+- greet
+- inform_payment_ready
+- not_paying_confirm
+- provide_excuse
+- request_extension
+entities:
+- reason
+slots:
+  reason:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: reason
+  payment_ready:
+    type: bool
+    mappings:
+    - type: from_intent
+      intent: inform_payment_ready
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
+responses:
+  utter_greet:
+  - text: Hello! I'm here to assist with your loan repayment.
+  utter_ask_payment:
+  - text: Are you ready to proceed with your loan payment today?
+  utter_payment_steps:
+  - text: 'Great! 🥳 You can pay your loan via our online portal. Follow this link: https://predixion.ai/ for the future steps. Is there anything else you need help with?'
+  utter_extension_granted:
+  - text: We'll extend the due date by a few days. Please make sure to pay by the new due date.
+  utter_handle_excuse:
+  - text: I understand your situation ☹️. Could you please share more details on why you need an extension?
+  utter_encourage_payment:
+  - text: We encourage timely payment to avoid extra fees.
+  utter_deny_payment:
+  - text: Please pay the loan on the given extended date🕟.
+  utter_affirm_response:
+  - text: Okay, thank you. Have a good day.
+  utter_end_conversation:
+  - text: Bye, have a good day 😇.
+  utter_no_need_more_help_exit:
+  - text: If you don't have any queries, you can type 'bye' or 'exit' 👋🏻.
+  utter_user_reason_for_extension:
+  - text: Could you tell us the reason why you'd like to extend the dates?
+actions:
+- utter_payment_steps
+- utter_no_need_more_help_exit
+- utter_end_conversation
+- utter_ask_payment
+- utter_greet
+- action_handle_extension_and_excuse
+- utter_extension_granted
+- utter_user_reason_for_extension
+- utter_encourage_payment
+- utter_deny_payment
+- utter_handle_excuse
+- utter_affirm_response
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,19 @@
+version: "3.0"
+
+rules:
+  # - rule: User wants to pay
+  #   steps:
+  #     - intent: inform_payment_ready
+  #     - action: utter_payment_steps
+
+  # - rule: User requests extension
+  #   steps:
+  #     - intent: request_extension
+  #     - action: action_handle_extension
+  #     - action: utter_extension_granted
+
+  # - rule: Handle excuse
+  #   steps:
+  #     - intent: provide_excuse
+  #     - action: action_handle_excuse
+  #     - action: utter_encourage_payment

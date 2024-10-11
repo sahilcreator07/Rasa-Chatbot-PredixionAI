@@ -1,0 +1,22 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_excuse\"}}]": "action_handle_excuse",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_excuse\"}}, {\"prev_action\": {\"action_name\": \"action_handle_excuse\"}, \"user\": {\"intent\": \"provide_excuse\"}}]": "utter_encourage_payment",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"provide_excuse\"}}, {\"prev_action\": {\"action_name\": \"action_handle_excuse\"}, \"user\": {\"intent\": \"provide_excuse\"}}, {\"prev_action\": {\"action_name\": \"utter_encourage_payment\"}, \"user\": {\"intent\": \"provide_excuse\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"inform_payment_ready\"}}]": "utter_payment_steps",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"inform_payment_ready\"}}, {\"prev_action\": {\"action_name\": \"utter_payment_steps\"}, \"user\": {\"intent\": \"inform_payment_ready\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"request_extension\"}}]": "action_handle_extension",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"request_extension\"}}, {\"prev_action\": {\"action_name\": \"action_handle_extension\"}, \"user\": {\"intent\": \"request_extension\"}}]": "utter_extension_granted",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"request_extension\"}}, {\"prev_action\": {\"action_name\": \"action_handle_extension\"}, \"user\": {\"intent\": \"request_extension\"}}, {\"prev_action\": {\"action_name\": \"utter_extension_granted\"}, \"user\": {\"intent\": \"request_extension\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent back",
+      "predicting default action with intent restart",
+      "predicting default action with intent session_start"
+    ]
+  }
+}

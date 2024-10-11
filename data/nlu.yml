@@ -1,0 +1,74 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hello
+    - Hey there
+    - Hi, can you help me with my loan?
+    - Hello, I need help
+    - Hi, I'm here for loan repayment
+    - hi
+- intent: end
+  examples: |
+    - no
+    - nope
+    - no thanks
+    - bye
+    - goodbye
+    - thanks, bye
+    - cool, thank you
+    - exit
+    - thanks,bye
+    - vye
+- intent: affirm
+  examples: |
+    - Yes
+    - Sure
+    - Absolutely
+    - Yes, I'm ready to pay
+    - Let's do it
+    - I am ready to pay now
+    - okay, thanks
+    - okay
+    - cool
+- intent: deny
+  examples: |
+    - No
+    - Not today
+    - I can’t pay right now
+    - I won’t be able to pay today
+    - Not possible right now
+- intent: inform_payment_ready
+  examples: |
+    - I’m ready to pay the loan
+    - I can pay now
+    - I’d like to make the payment
+    - I want to pay my loan today
+    - Ready to pay my dues
+    - Let's proceed with payment
+    - i can pay now
+- intent: request_extension
+  examples: |
+    - I need some more time
+    - Can I have a few more days?
+    - Can you extend the due date?
+    - I need an extension for my payment
+    - I can't pay now, can I pay later?
+    - Please give me some extra time to pay
+- intent: provide_excuse
+  examples: |
+    - I'm unable to pay because of [financial difficulties](reason)
+    - I need an extension because of [medical emergency](reason)
+    - The payment is delayed due to [work commitments](reason)
+    - I can't pay now, I lost my [job](reason)
+    - i can't pay, i lost my [job](reason)
+    - i lost my [job](reason).
+- intent: affirm_for_no_payment
+  examples: |
+    - sure
+    - Yes, I can't pay now
+    - I understand, but I can't pay today
+    - Yes, I am sure
+    - Yes
+    - Sorry, I can't pay today
